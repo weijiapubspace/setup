@@ -1,0 +1,40 @@
+version: '3'
+services:
+  mymanagementuife:
+    ports:
+      - '3000:3000'
+    tty: true
+    restart: unless-stopped
+    image: secondspace/managementui_fe:ver1.4
+    networks:
+      - mygateway
+    container_name: managementui_fe_1
+  mymimicuibackend:
+    ports:
+      - '4000:4000'
+    restart: unless-stopped
+    image: secondspace/managementui_be:ver1.5
+    networks:
+      - mygateway
+    container_name: managementui_be_1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - mui_mount:/app
+  mysql_s1.2:
+    ports:
+      - '3306:3306'
+    restart: unless-stopped
+    image: secondspace/sql_s1.2:latest
+    networks:
+      - mygateway
+    volumes:
+      - mui_sql:/var/lib/mysql
+    container_name: sql_s1.2_1
+networks:
+  mygateway:
+    driver: bridge
+    name: docker_gateway
+volumes:
+  mui_mount:
+  mui_sql:
+    
