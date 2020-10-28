@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mymimicuifrontend:
+    ports:
+      - '3001:3000'
+    tty: 'true'
+    restart: unless-stopped
+    image: mimicuifrontend_local
+    networks:
+      - mygateway
+    container_name: mimicuifrontend_1
+    environment:
+      - REACT_APP_INFLUX_HOST=localhost
+      - REACT_APP_INFLUX_PORT=9012
+      - REACT_APP_INFLUX_DATABASE=myinfluxfordemo
+      - REACT_APP_INFLUX_MEASUREMENT=demoset1
+      - REACT_APP_INFLUX_TAG=mytag
+      - REACT_APP_INFLUX_FIELD=oee
+      - REACT_APP_INFLUX_QUERY=select oee from demoset1 order by desc limit 11
+      - 'REACT_APP_SOCKET_ENDPOINT=http://localhost:4001'
+  mymimicuibackend:
+    ports:
+      - '4001:4001'
+    restart: unless-stopped
+    image: mimicuibackend_local
+    networks:
+      - mygateway
+    container_name: mimicuibackend_1
+    environment:
+      - 'REACT_APP_MQTT_BROKER=http://mqtt_broker_1:1883'
+      - REACT_APP_MQTT_TOPIC=mimicui
+      - REACT_APP_SQL_HOST=sql_s1.2_1
+networks:
+  mygateway:
+    driver: bridge
+    name: docker_gateway
