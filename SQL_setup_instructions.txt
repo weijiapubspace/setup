@@ -1,0 +1,9 @@
+#open a new terminal, enter mysql container by excuting the command below:
+docker exec -it sql_s1.2_1 mysql -uroot -pArtc1234
+
+#run the folloing command to restore the database in sql conrtainer bash:
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Artc1234';
+flush privileges;
+source rul.sql;
+source oee-status-ui.sql;
+exit;
