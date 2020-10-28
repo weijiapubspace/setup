@@ -13,7 +13,7 @@ services:
     ports:
       - '4000:4000'
     restart: unless-stopped
-    image: secondspace/managementui_be:ver1.5
+    image: secondspace/managementui_be:ver1.7
     networks:
       - mygateway
     container_name: managementui_be_1
@@ -37,4 +37,3 @@ networks:
 volumes:
   mui_mount:
   mui_sql:
-    
