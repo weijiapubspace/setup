@@ -1,17 +1,10 @@
-#!/bin/bash
-sudo apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add
-sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
-sudo apt-get update
-sudo apt-cache policy docker-ce
-sudo apt install docker-ce
-sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose #ensure using 1.27.4 latest verison
-sudo chmod +x /usr/local/bin/docker-compose
-docker volume create mui_mount #docker volume create muis_mount 
-#docker login to secondspace but currently all repo are public 
-#docker login -u secondspace -p Bravo@2019
-docker-compose up #build management ui
+# Open a new command terminal and login to the sql database, please 
+# ensure the setup.sh has been completed
+docker exec -it sql_s1.2_1 mysql -uroot -pArtc1234
+
+
+# Import all previous data
+ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'Artc1234';
+flush privileges;
+source rul.sql;
+source iotdb.sql; 
