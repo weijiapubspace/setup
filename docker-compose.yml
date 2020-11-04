@@ -36,4 +36,8 @@ networks:
     name: docker_gateway
 volumes:
   mui_mount:
+    external: true
+    name:  mui_mount
   mui_sql:
+    external: true
+    name:  mysql
