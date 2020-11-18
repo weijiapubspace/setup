@@ -5,7 +5,7 @@ services:
       - '3000:3000'
     tty: true
     restart: unless-stopped
-    image: secondspace/managementui_fe:ver1.5
+    image: secondspace/managementui_fe:ver1.8
     networks:
       - mygateway
     container_name: managementui_fe_1
@@ -13,13 +13,12 @@ services:
     ports:
       - '4000:4000'
     restart: unless-stopped
-    image: secondspace/managementui_be:ver1.9
+    image: secondspace/managementui_be:verT
     networks:
       - mygateway
     container_name: managementui_be_1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - mui_mount:/app
   mysql_s1.2:
     ports:
       - '3306:3306'
@@ -28,16 +27,13 @@ services:
     networks:
       - mygateway
     volumes:
-      - mui_sql:/var/lib/mysql
+      - mysql:/var/lib/mysql
     container_name: sql_s1.2_1
 networks:
   mygateway:
     driver: bridge
     name: docker_gateway
 volumes:
-  mui_mount:
-    external: true
-    name:  mui_mount
-  mui_sql:
+  mysql:
     external: true
     name:  mysql
