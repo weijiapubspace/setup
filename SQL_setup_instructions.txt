@@ -1,6 +1,6 @@
 # Open a new command terminal and run the command below, please 
 # ensure the setup.sh has been completed
-docker exec -it sql_s1.2_1 mysql -uroot -pArtc1234
+sudo docker exec -it sql_s1.2_1 mysql -uroot -pArtc1234
 
 
 # Import all previous data, copy all code to command line
