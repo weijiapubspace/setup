@@ -1,6 +1,6 @@
 1. how to run shell script?
 
-open terminal under setup folder, run command "sudo chmod a+x setup.sh", then "./setup.sh".
+open terminal under setup folder, run command "sudo chmod a+x setup.sh", then "sudo ./setup.sh".
 
 2. what if setup.sh can not install the docker properly?
 
