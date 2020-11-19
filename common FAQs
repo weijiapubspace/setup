@@ -1,0 +1,8 @@
+1. how to run shell script?
+
+open terminal under setup folder, run command "sudo chmod a+x setup.sh", then "./setup.sh".
+
+2. what if setup.sh can not install the docker properly?
+
+Please manually install the docker on ubuntu first, here is the installation instruction: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+* please take note, the setup.sh is for ubuntu version 18.04. 
