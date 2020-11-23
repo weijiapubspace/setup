@@ -5,7 +5,7 @@ services:
       - '3000:3000'
     tty: true
     restart: unless-stopped
-    image: secondspace/artc_managementui_fe:ver1.8
+    image: secondspace/artc_managementui_fe:ver1.9
     networks:
       - mygateway
     container_name: managementui_fe_1
@@ -13,7 +13,7 @@ services:
     ports:
       - '4000:4000'
     restart: unless-stopped
-    image: secondspace/artc_managementui_be:ver2.6
+    image: secondspace/artc_managementui_be:ver2.7
     networks:
       - mygateway
     container_name: managementui_be_1
