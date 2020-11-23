@@ -11,5 +11,5 @@ source oee-status-ui.sql;
 exit;
 
 #delete the container 
-docker stop sql_s1.2_1 
-docker rm sql_s1.2_1
+sudo docker stop sql_s1.2_1 
+sudo docker rm sql_s1.2_1
